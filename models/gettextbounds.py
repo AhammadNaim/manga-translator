@@ -1,5 +1,6 @@
 import cv2
 import math
+from fastapi import FastAPI, UploadFile, File
 
 net = cv2.dnn.readNet("frozen_east_text_detection.pb")   #This is the model we get after extraction
 frame = cv2.imread(<image_filename>)
@@ -34,6 +35,6 @@ for i in indices:
         p1 = (vertices[j][0], vertices[j][1])
         p2 = (vertices[(j + 1) % 4][0], vertices[(j + 1) % 4][1])
         cv2.line(frame, p1, p2, (0, 255, 0), 3)
-
-# To save the image:
-cv2.imwrite("maggi_boxed.jpg", frame)
+         
+        
+        
