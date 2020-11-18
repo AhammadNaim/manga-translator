@@ -2,3 +2,4 @@ numpy==1.18.1
 pytesseract==0.3.6
 Pillow==7.2.0
 opencv-python==4.4.0.46
+fastapi==0.61.2 
