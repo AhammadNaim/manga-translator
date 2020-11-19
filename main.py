@@ -33,8 +33,7 @@ def read_img(img):
   dilation = cv2.dilate(thresh1, rect_kernel, iterations = 1) 
 
 # Finding contours 
-  contours, hierarchy = cv2.findContours(dilation, cv2.RETR_EXTERNAL, 
-												cv2.CHAIN_APPROX_NONE) 
+  contours, hierarchy = cv2.findContours(dilation, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE) 
 
 # Creating a copy of image 
   im2 = img.copy() 
@@ -60,15 +59,19 @@ def read_img(img):
 	# Apply OCR on the cropped image 
     text = pytesseract.image_to_string(cropped) 
     txt = txt+"\n <div class=\"translatedtext\" style=\"left:"+str(x) +";top:"+ str(y) + ";width:"+ str(w) + ";height:"+ str(h) + "\" >" + text + "</div>"
-	
+
 app = FastAPI()class ImageType(BaseModel):
- url: str@app.post(“/predict/”) 
+  url: str
+
+@app.post(“/predict/”) 
 def prediction(request: Request, 
- file: bytes = File(…)):if request.method == “POST”:
- image_stream = io.BytesIO(file)
- image_stream.seek(0)
- file_bytes = np.asarray(bytearray(image_stream.read()), dtype=np.uint8)
- frame = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
- label = read_img(frame)
- return label
- return “No post request found”
+  file: bytes = File(…)):
+
+if request.method == “POST”:
+  image_stream = io.BytesIO(file)
+  image_stream.seek(0)
+  file_bytes = np.asarray(bytearray(image_stream.read()), dtype=np.uint8)
+  frame = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
+  label = read_img(frame)
+  return label
+  return “No post request found”
