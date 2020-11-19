@@ -6,7 +6,9 @@ import io
 import cv2
 import pytesseract
 import re
-from pydantic import BaseModeldef read_img(img):
+from pydantic import BaseModel
+
+def read_img(img):
   pytesseract.pytesseract.tesseract_cmd = 'System_path_to_tesseract.exe'
 
 # Read image from which text needs to be extracted 
