@@ -5,7 +5,7 @@ def read_img(imgu):
   pytesseract.pytesseract.tesseract_cmd = 'tesseract'
 
 # Read image from which text needs to be extracted 
-  img = cv2.imread(img) 
+  img = cv2.imread(imgu) 
 
 # Preprocessing the image starts 
 
