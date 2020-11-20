@@ -1,11 +1,11 @@
 import cv2 
 import pytesseract 
 
-def read_img(img):
+def read_img(imgu):
   pytesseract.pytesseract.tesseract_cmd = 'tesseract'
 
 # Read image from which text needs to be extracted 
-# img = cv2.imread("sample.jpg") 
+  img = cv2.imread(img) 
 
 # Preprocessing the image starts 
 
