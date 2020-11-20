@@ -51,5 +51,5 @@ def read_img(imgu):
     
 	# Apply OCR on the cropped image 
     text = pytesseract.image_to_string(cropped) 
-    txt = txt+"\n <div class=\"translatedtext\" style=\"left:"+str(x) +";top:"+ str(y) + ";width:"+ str(w) + ";height:"+ str(h) + "\" >" + text + "</div>"
+    txt = txt+" <div class='translatedtext' style='left:"+str(x) +"px;top:"+ str(y) + "px;width:"+ str(w) + "px;height:"+ str(h) + "px;' >" + text + "</div>"
   return txt
