@@ -2,7 +2,7 @@ import cv2
 import pytesseract 
 
 def read_img(img):
-  pytesseract.pytesseract.tesseract_cmd = 'System_path_to_tesseract.exe'
+  pytesseract.pytesseract.tesseract_cmd = 'tesseract'
 
 # Read image from which text needs to be extracted 
 # img = cv2.imread("sample.jpg") 
