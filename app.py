@@ -61,7 +61,7 @@ def process():
 
       if os.path.isfile(output_file):
         f = open(output_file)
-        output = read_img(file)
+        output = ocr.read_img(file)
         resp = jsonify( {
           u'status': 200,
           u'ocr': {k:v.decode('utf-8') for k,v in enumerate(output.splitlines())}
