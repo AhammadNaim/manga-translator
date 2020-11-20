@@ -64,7 +64,7 @@ def process():
         output = read_img(file)
         resp = jsonify( {
           u'status': 200,
-          u'ocr': output
+          u'ocr': {k:v.decode('utf-8') for k,v in enumerate(output.splitlines())}
         } )
       else:
         resp = jsonify( {
