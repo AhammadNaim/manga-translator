@@ -3,6 +3,7 @@ import subprocess
 import sys
 import logging
 import shutil
+import ocr
 from flask import Flask, jsonify, render_template, request
 from werkzeug import secure_filename
 
@@ -60,9 +61,10 @@ def process():
 
       if os.path.isfile(output_file):
         f = open(output_file)
+        output = read_img(file)
         resp = jsonify( {
           u'status': 200,
-          u'ocr':{k:v.decode('utf-8') for k,v in enumerate(f.read().splitlines())}
+          u'ocr': output
         } )
       else:
         resp = jsonify( {
