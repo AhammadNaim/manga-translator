@@ -58,10 +58,11 @@ def process():
       proc.wait()
 
       output_file += ext
+      output = ocr.read_img(input_file)
 
-      if os.path.isfile(output_file):
-        f = open(output_file)
-        output = ocr.read_img(input_file)
+      if not output output=="":
+        #f = open(output_file)
+        #output = ocr.read_img(input_file)
         resp = jsonify( {
           u'status': 200,
           u'ocr': {k:v.decode('utf-8') for k,v in enumerate(output.splitlines())}
