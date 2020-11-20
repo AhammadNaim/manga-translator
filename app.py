@@ -60,7 +60,7 @@ def process():
       output_file += ext
       output = ocr.read_img(input_file)
 
-      if not output output=="":
+      if not output=="":
         #f = open(output_file)
         #output = ocr.read_img(input_file)
         resp = jsonify( {
